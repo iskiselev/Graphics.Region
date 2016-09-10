@@ -1,0 +1,8 @@
+syntax: glob
+bin/Debug
+bin/Release/
+.vs/
+project.lock.json
+obj/Debug/
+obj/Release
+*.xproj.user
