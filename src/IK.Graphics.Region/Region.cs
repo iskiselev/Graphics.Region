@@ -22,6 +22,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace IK.Graphics.Region
@@ -1313,7 +1314,15 @@ namespace IK.Graphics.Region
             return !Equals(left, right);
         }
 
-// DEBUG
+        public IEnumerable<RectJ> GetRects()
+        {
+            var rectJList = new List<RectJ>();
+            for (int index = 0; index < _nRectangles; ++index)
+                rectJList.Add(new RectJ(new Box(_rectangles[index * 4 + 2], _rectangles[index * 4], _rectangles[index * 4 + 3], _rectangles[index * 4 + 1])));
+            return rectJList;
+        }
+
+        // DEBUG
         private bool IsExtentCorrect()
         {
             int yMin = 0;
